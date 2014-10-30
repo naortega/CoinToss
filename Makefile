@@ -21,5 +21,5 @@ src/%.o: src/%.c
 clean:
 	$(RM) src/*.o
 
-fullclean: clean
+cleanall: clean
 	$(RM) bin
