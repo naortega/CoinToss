@@ -1,3 +1,6 @@
 # Ignore binaries
 bin/
 *.o
+
+# Ignore deb creating directory
+debian/
