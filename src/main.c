@@ -30,7 +30,7 @@ void printAllCopyright();
 void printWarranty();
 /* Function prototypes end */
 
-// Main function
+// Main function:
 int main(int argc, char **argv) {
 	// If inappropriate number of arguments
 	if(argc < 2 || argc > 3) { // If inappropriate number of arguments (number required = 2)
