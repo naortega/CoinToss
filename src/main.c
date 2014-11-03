@@ -16,6 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include <stdio.h>
+#include <ctype.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
@@ -28,7 +29,8 @@ void printWarranty();
 
 int main(int argc, char **argv) {
 	if(argc < 2 || argc > 3) {
-		printf("Usage: %s [trials]\n", argv[0]);
+		printf("Inappropriate amount of arguments.");
+		printf("Usage: %s [num_trials]\n", argv[0]);
 		return 1;
 	}
 
@@ -38,6 +40,23 @@ int main(int argc, char **argv) {
 	} else if(strcmp(argv[1], "-w") == 0) {
 		printWarranty();
 		return 0;
+	} else if(strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "--help") == 0) {
+		printf("Usage: %s [num_trials]\n\
+ -c		-- Print copyright info\n\
+ -h | --help	-- Print this help information\n\
+ -w		-- Print warranty information\n", argv[0]);
+		return 0;
+	} else {
+		int i = 0;
+		while(argv[1][i] != '\0') {
+			printf("%c", argv[1][i]);
+			if(isdigit(argv[1][i] - '0') != 0) {
+				printf("You did not specify a number.\n");
+				printf("Usage: %s [num_trials]\n", argv[0]);
+				return 1;
+			}
+			i++;
+		}
 	}
 
 	printCopyright();
@@ -48,7 +67,7 @@ int main(int argc, char **argv) {
 
 	srand(time(NULL));
 
-	printf("Working...\n");
+	printf("Calculating random numbers...\n");
 	for(int i = 0; i < trials; i++) {
 		if(i % 100000000 == 0) printf("Working...\n");
 		int r = rand() % 100 + 1;
