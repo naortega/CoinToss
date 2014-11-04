@@ -22,7 +22,7 @@
 #include <time.h>
 
 // Global version string
-char version[7] = "v0.1";
+char version[7] = "v0.2";
 
 /* Function prototypes start */
 void printCopyright();
