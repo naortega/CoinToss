@@ -34,7 +34,7 @@ void printWarranty();
 int main(int argc, char **argv) {
 	// If inappropriate number of arguments
 	if(argc < 2 || argc > 3) { // If inappropriate number of arguments (number required = 2)
-		printf("Inappropriate amount of arguments.");
+		printf("Inappropriate amount of arguments.\n");
 		printf("Usage: %s [num_trials]\n", argv[0]);
 		return 1;
 	}
@@ -65,33 +65,32 @@ int main(int argc, char **argv) {
 
 	printCopyright();
 
-	int trials = atoi(argv[1]);
-	int heads = 0;
-	int tails = 0;
+	long long int trials = atoi(argv[1]);
+	long long int heads = 0;
+	long long int tails = 0;
 
 	// Setup the random number generator with the seed being the time
 	srand(time(NULL));
 
-	//int oldprogress = 0;
+	long long int oldprogress = 0;
 
 	printf("Calculating random numbers...\n");
-	//printf("Progress: 0 %%\n");
-	for(int i = 0; i < trials; i++) {
-		/*int progress = i * 100 / trials;
+	printf("Progress: 0 %%\n");
+	for(long long int i = 0; i < trials; i++) {
+		long long int progress = (i * 100) / trials;
 		if(progress != oldprogress && progress % 10 == 0) {
-			printf("Progress: %i %%\n", progress);
+			printf("Progress: %lli %%\n", progress);
 			oldprogress = progress;
-		}*/
-		//if(i % 100000000 == 0) printf("Working...\n");
+		}
 		int r = rand() % 100 + 1; // Calculate random number between 1 and 100
 		if(r <= 50) heads++;
 		else tails++;
 	}
-	//printf("Progress: 100 %%\n");
+	printf("Progress: 100 %%\n");
 
-	printf("Done.\n");
-	printf("Heads: %i\n", heads);
-	printf("Tails: %i\n", tails);
+	printf("Done.\n\n");
+	printf("Heads: %lli\n", heads);
+	printf("Tails: %lli\n", tails);
 	return 0;
 }
 
