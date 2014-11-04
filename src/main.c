@@ -39,13 +39,13 @@ int main(int argc, char **argv) {
 		return 1;
 	}
 
-	if(strcmp(argv[1], "-c") == 0) { // If argv[1] (the second argument) is equal to "-c" ...
+	if(!strcmp(argv[1], "-c")) { // If argv[1] (the second argument) is equal to "-c" ...
 		printAllCopyright();
 		return 0;
-	} else if(strcmp(argv[1], "-w") == 0) { // If argv[1] is equal to "-w"
+	} else if(!strcmp(argv[1], "-w")) { // If argv[1] is equal to "-w"
 		printWarranty();
 		return 0;
-	} else if(strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "--help") == 0) { // If argv[1] is equal to "-h" or "--help"
+	} else if(!strcmp(argv[1], "-h") || !strcmp(argv[1], "--help")) { // If argv[1] is equal to "-h" or "--help"
 		printf("Usage: %s [num_trials]\n\
  -c		-- Print copyright info\n\
  -h | --help	-- Print this help information\n\
