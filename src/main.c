@@ -72,13 +72,22 @@ int main(int argc, char **argv) {
 	// Setup the random number generator with the seed being the time
 	srand(time(NULL));
 
+	//int oldprogress = 0;
+
 	printf("Calculating random numbers...\n");
+	//printf("Progress: 0 %%\n");
 	for(int i = 0; i < trials; i++) {
-		if(i % 100000000 == 0) printf("Working...\n");
+		/*int progress = i * 100 / trials;
+		if(progress != oldprogress && progress % 10 == 0) {
+			printf("Progress: %i %%\n", progress);
+			oldprogress = progress;
+		}*/
+		//if(i % 100000000 == 0) printf("Working...\n");
 		int r = rand() % 100 + 1; // Calculate random number between 1 and 100
 		if(r <= 50) heads++;
 		else tails++;
 	}
+	//printf("Progress: 100 %%\n");
 
 	printf("Done.\n");
 	printf("Heads: %i\n", heads);
