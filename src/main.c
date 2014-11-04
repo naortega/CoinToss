@@ -54,7 +54,7 @@ int main(int argc, char **argv) {
 	} else {
 		int i = 0;
 		while(argv[1][i] != '\0') { // While argv[1][i] is not equal to NULL (can't use NULL for pointers)
-			if(isdigit(argv[1][i] - '0') != 0) { // if argv[1][i] is not a number between 0 and 9
+			if(isdigit(argv[1][i] - '0')) { // if argv[1][i] is not a number between 0 and 9
 				printf("You did not specify a number.\n");
 				printf("Usage: %s [num_trials]\n", argv[0]);
 				return 1;
