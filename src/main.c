@@ -35,7 +35,7 @@ int main(int argc, char **argv) {
 	// If inappropriate number of arguments
 	if(argc < 2 || argc > 3) { // If inappropriate number of arguments (number required = 2)
 		printf("Inappropriate amount of arguments.\n");
-		printf("Usage: %s [num_trials]\n", argv[0]);
+		printf("Usage: %s [num_trials]\n\nUse -h or --help for more information.", argv[0]);
 		return 1;
 	}
 
@@ -99,7 +99,8 @@ void printCopyright() {
 	printf("CoinToss %s Copyright (C) 2014  Nicolás A. Ortega\n\
 This program comes with ABSOLUTELY NO WARRANTY; for details use `-w'.\n\
 This is free software, and you are welcome to redistribute it\n\
-under certain conditions; use `-c' for details.\n\n", version);
+under certain conditions; use `-c' for details.\n\n\
+The source-code can be found at http://github.com/Deathsbreed/CoinToss\n\n", version);
 }
 
 void printAllCopyright() {
