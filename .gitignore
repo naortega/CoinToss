@@ -1,3 +1,2 @@
 # Ignore binaries
 bin/
-*.o

@@ -1,25 +1,24 @@
 CXX=gcc
 CXXFLAGS= -O3 -Wall -std=gnu99
 
-INCLUDES=
-LIBS=
-
-MV=mv
 MKDIR=mkdir -p
 RM=rm -rf
 
-SRC_FILES := $(wildcard src/*.c)
-OBJ_FILES := $(addprefix obj/, $(notdir $(SRC_FILES:.c=.o)))
+LBITS := $(shell getconf LONG_BIT)
 
-all: $(OBJ_FILES)
-	$(MKDIR) bin
-	$(CXX) $(CXXFLAGS) $(LIBS) -o bin/cointoss obj/*.o
+ifeq ($(LBITS),32)
+all: compile32bit
+else
+all: compile64bit
+endif
 
-obj/%.o: src/%.c
-	$(CXX) $(CXXFLAGS) $(INCLUDES) -c -o $@ $<
+compile32bit:
+	$(MKDIR) bin/lin32/
+	$(CXX) $(CXXFLAGS) -m32 -o bin/lin32/cointoss src/main.c
+
+compile64bit:
+	$(MKDIR) bin/lin64/
+	$(CXX) $(CXXFLAGS) -m64 -o bin/lin64/cointoss src/main.c
 
 clean:
-	$(RM) obj/*.o
-
-cleanall: clean
 	$(RM) bin
