@@ -92,14 +92,14 @@ elif sys.argv[1] == "-v":
 	print "CoinToss", version
 	sys.exit(0)
 
-if sys.argv[1] is not int:
-	print "Please give an integer."
-	sys.exit(0)
-
 printCopyright()
 
 # Create necessary variables
-trials = int(sys.argv[1])
+try:
+	trials = int(sys.argv[1])
+except ValueError:
+	print "Please give an integer."
+	sys.exit(2)
 heads = 0
 tails = 0
 
